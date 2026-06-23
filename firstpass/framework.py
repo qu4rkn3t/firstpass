@@ -162,6 +162,7 @@ class FirstPassFramework:
         """Clean up resources"""
         if self.perf_keeper_client:
             self.perf_keeper_client.close()
+        self.release_controller_client.close()
 
     def generate_report(self):
         """Generate and display regression report"""

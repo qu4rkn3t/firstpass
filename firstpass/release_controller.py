@@ -201,3 +201,7 @@ class ReleaseControllerClient:
 
         logger.warning("Could not extract Prow job URL from description")
         return None
+
+    def close(self):
+        """Close HTTP session and clean up resources"""
+        self.session.close()
