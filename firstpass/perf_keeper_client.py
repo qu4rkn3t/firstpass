@@ -11,25 +11,20 @@ logger = logging.getLogger(__name__)
 class PerfKeeperClient:
     """Client for perf-keeper diagnosis service"""
 
-    def __init__(self, base_url: str, timeout: int = 120, api_token: Optional[str] = None):
+    def __init__(self, base_url: str, timeout: int = 120):
         """Initialize perf-keeper client
 
         Args:
             base_url: Perf-keeper service base URL
             timeout: Request timeout in seconds
-            api_token: Optional API token for authentication
         """
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
-        self.api_token = api_token
 
         transport = httpx.HTTPTransport(retries=3)
-        headers = {}
-        if api_token:
-            headers["Authorization"] = f"Bearer {api_token}"
 
         self.client = httpx.Client(
-            transport=transport, timeout=timeout, headers=headers, follow_redirects=True
+            transport=transport, timeout=timeout, follow_redirects=True
         )
 
     def analyze_job(self, job_url: str) -> Optional[Dict[str, Any]]:

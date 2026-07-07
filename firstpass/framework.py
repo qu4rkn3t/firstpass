@@ -92,9 +92,8 @@ class FirstPassFramework:
             return None
 
         timeout = self.config.get("perf_keeper.timeout", 120)
-        api_token = self.config.get("perf_keeper.api_token")
 
-        return PerfKeeperClient(base_url=base_url, timeout=timeout, api_token=api_token)
+        return PerfKeeperClient(base_url=base_url, timeout=timeout)
 
     def _init_phases(self) -> Dict[str, Phase]:
         """Initialize enabled phases

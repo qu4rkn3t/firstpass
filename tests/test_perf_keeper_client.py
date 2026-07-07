@@ -16,16 +16,7 @@ class TestPerfKeeperClient:
 
         assert client.base_url == "http://localhost:8080"
         assert client.timeout == 120
-        assert client.api_token is None
         assert client.client is not None
-
-    def test_init_with_api_token(self):
-        """Test client initialization with API token"""
-        client = PerfKeeperClient(
-            base_url="http://localhost:8080", timeout=120, api_token="test-token"
-        )
-
-        assert client.api_token == "test-token"
 
     def test_init_strips_trailing_slash(self):
         """Test that trailing slash is removed from base_url"""

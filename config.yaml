@@ -14,7 +14,6 @@ gcs:
 perf_keeper:
   # base_url: ""  # Optional: set to the perf-keeper deployment URL to enable analysis
   timeout: 120  # Analysis timeout in seconds
-  # api_token: ""  # Optional: uncomment if authentication required
 
 phases:
   enabled:
