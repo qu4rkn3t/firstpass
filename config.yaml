@@ -11,6 +11,10 @@ release_controller:
 gcs:
   base_url: "https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs"
 
+perf_keeper:
+  # base_url: ""  # Optional: set to the perf-keeper deployment URL to enable analysis
+  timeout: 120  # Analysis timeout in seconds
+
 phases:
   enabled:
     - phase1
