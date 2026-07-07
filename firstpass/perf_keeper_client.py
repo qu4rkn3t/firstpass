@@ -23,9 +23,7 @@ class PerfKeeperClient:
 
         transport = httpx.HTTPTransport(retries=3)
 
-        self.client = httpx.Client(
-            transport=transport, timeout=timeout, follow_redirects=True
-        )
+        self.client = httpx.Client(transport=transport, timeout=timeout, follow_redirects=True)
 
     def analyze_job(self, job_url: str) -> Optional[Dict[str, Any]]:
         """Analyze Prow job and return markdown report
